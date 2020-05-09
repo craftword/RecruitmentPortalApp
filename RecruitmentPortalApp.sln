@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentPortalApp", "RecruitmentPortalApp.csproj", "{08200282-9373-41E0-B420-8CBF50D6E6BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentPortalAppTest", "..\RecruitmentPortalAppTest\RecruitmentPortalAppTest.csproj", "{BE7B9399-0D6C-4328-8493-1928CF2504DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{08200282-9373-41E0-B420-8CBF50D6E6BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08200282-9373-41E0-B420-8CBF50D6E6BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08200282-9373-41E0-B420-8CBF50D6E6BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE7B9399-0D6C-4328-8493-1928CF2504DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE7B9399-0D6C-4328-8493-1928CF2504DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE7B9399-0D6C-4328-8493-1928CF2504DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE7B9399-0D6C-4328-8493-1928CF2504DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
