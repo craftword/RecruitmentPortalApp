@@ -1,0 +1,9 @@
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.csprojAssemblyReference.cache
+C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\staticwebassets\RecruitmentPortalApp.StaticWebAssets.Manifest.cache
+C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\staticwebassets\RecruitmentPortalApp.StaticWebAssets.xml
+C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.AssemblyInfoInputs.cache
+C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.AssemblyInfo.cs
+C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.RazorTargetAssemblyInfo.cache
