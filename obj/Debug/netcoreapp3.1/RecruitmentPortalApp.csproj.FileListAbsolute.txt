@@ -64,5 +64,5 @@ C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microso
 C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Moq.dll
