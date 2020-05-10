@@ -17,7 +17,9 @@ namespace RecruitmentPortalApp.Models
         public string Address { get; set; }
         public string City { get; set; }
         public string HighestEducation { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual UserModel User { get; set; }
         public DateTime Created_at { get; set; }
     }
 }

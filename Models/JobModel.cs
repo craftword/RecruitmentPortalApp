@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace RecruitmentPortalApp.Models
 {
@@ -20,6 +19,8 @@ namespace RecruitmentPortalApp.Models
         public string Roles { get; set; }
         public string Category { get; set; }
         public DateTime ClosingDate { get; set; }
+
+        public virtual ICollection<JobStagesModel> JobStages { get; set; }
 
 
     }

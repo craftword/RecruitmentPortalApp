@@ -13,7 +13,9 @@ namespace RecruitmentPortalApp.Models
         public string Title { get; set; }
         [Required]
         public string Url { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual UserModel User { get; set; }
         public DateTime Created_at { get; set; }
     }
 }

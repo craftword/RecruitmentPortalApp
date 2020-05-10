@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,5 +17,9 @@ namespace RecruitmentPortalApp.Models
         public string Duration { get; set; }
         public int TotalScore { get; set; }
         public DateTime Created_at { get; set; }
+
+        public virtual ICollection<JobStagesModel> JobStages { get; set; }
+        public virtual ICollection<ScoreBoardModel> ScoreBoards { get; set; }
+        public virtual ICollection<QuestionsModel> Questions { get; set; }
     }
 }

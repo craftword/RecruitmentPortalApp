@@ -42,8 +42,8 @@ namespace RecruitmentPortalApp.Services
                 new { Id = "4", Name = "Staff", NormalizedName = "STAFF" }
             );
            
-            var hasher = new PasswordHasher<IdentityUser>();
-            builder.Entity<IdentityUser>().HasData(new IdentityUser
+            var hasher = new PasswordHasher<UserModel>();
+            builder.Entity<UserModel>().HasData(new UserModel
             {
                 Id = ADMIN_ID,
                 UserName = "admin",
