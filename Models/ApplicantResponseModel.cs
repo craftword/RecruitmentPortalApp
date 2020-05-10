@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecruitmentPortalApp.Models
 {
-    public class ApplicantResponse
+    public class ApplicantResponseModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

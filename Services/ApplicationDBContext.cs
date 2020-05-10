@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RecruitmentPortalApp.Models;
 
 namespace RecruitmentPortalApp.Services
 {
@@ -13,6 +14,17 @@ namespace RecruitmentPortalApp.Services
 
         }
 
+        public virtual DbSet<ApplicationModel> Applications { get; set; }
+        public virtual DbSet<AnswersModel> Answers { get; set; }
+        public virtual DbSet<ApplicantResponseModel> ApplicantResponses { get; set; }
+        public virtual DbSet<JobModel> Jobs { get; set; }
+        public virtual DbSet<JobStagesModel> JobStages { get; set; }
+        public virtual DbSet<OrganizationDocsModel> OrganizationDocuments { get; set; }
+        public virtual DbSet<ProfileModel> Profiles { get; set; }
+        public virtual DbSet<QuestionsModel> Questions { get; set; }
+        public virtual DbSet<ScoreBoardModel> ScoreBoards { get; set; }
+        public virtual DbSet<StaffDocsModel> StaffDocuments { get; set; }
+        public virtual DbSet<StagesModel> Stages { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
