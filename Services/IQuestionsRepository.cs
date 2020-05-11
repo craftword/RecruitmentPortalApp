@@ -12,8 +12,7 @@ namespace RecruitmentPortalApp.Services
         bool CreateQuestions(QuestionsModel Questions);
         bool UpdateQuestions(QuestionsModel Questions);
         bool DeleteQuestions(QuestionsModel Questions);
-        QuestionsModel GetQuestions(int Id);
-        QuestionsModel GetQuestionsAndAnswers(int Id);
+        QuestionsModel GetQuestions(int Id);        
 
         bool CreateQuestionAnswer(AnswersModel Answer);
         bool UpdateQuestionAnswer(AnswersModel Answer);

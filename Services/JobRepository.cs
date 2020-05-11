@@ -49,11 +49,11 @@ namespace RecruitmentPortalApp.Services
             return _ApplicationDBContext.Jobs.OrderBy(b => b.ClosingDate).ToList();
         }
 
-        public JobsModel GetJobStages(int jobId)
+        public StagesModel GetJobStages(int jobId)
         {
             var stages = _ApplicationDBContext.Jobs
-              .Include(c => c.JobStages)                
-              .Where(b => b.Id == jobId).FirstOrDefault();
+                     .Where(m => m.Id == jobId)
+                     .SelectMany(m => m.JobStages.Select(mc => mc.Stage)).FirstOrDefault();
 
             return stages;
         }

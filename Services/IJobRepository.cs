@@ -14,7 +14,7 @@ namespace RecruitmentPortalApp.Services
         bool DeleteJob(JobsModel Job);
         JobsModel GetJob(int jobId);
         JobsModel GetJobApplicants(int jobId);
-        JobsModel GetJobStages(int jobId);
+        StagesModel GetJobStages(int jobId);
         bool JobExists(int jobId);
         bool Save();
     }

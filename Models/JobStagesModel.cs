@@ -8,13 +8,10 @@ namespace RecruitmentPortalApp.Models
 {
     public class JobStagesModel
     {
-
-        public int Id { get; set; }
-        public int? JobId { get; set; }     
-        public int? StageId { get; set; }
-        [ForeignKey("JobId")]
+               
+        public int? JobId { get; set; }
         public virtual JobsModel Job { get; set; }
-        [ForeignKey("StageId")]
+        public int? StageId { get; set; }                    
         public virtual StagesModel Stage { get; set; }
     }
 }
