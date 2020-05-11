@@ -15,6 +15,8 @@ namespace RecruitmentPortalApp.Services
         ApplicationModel GetApplication(int Id);
         ApplicationModel GetApplicationScoreboard(int Id);
         ApplicationModel GetApplicationResponses(int Id);
+        bool AddScoreBoard(ScoreBoardModel scoreboard);
+        bool AddApplicantResponse(ApplicantResponseModel response);
 
         bool ApplicationExists(int Id);
         bool Save();
