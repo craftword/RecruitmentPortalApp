@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace RecruitmentPortalApp.Models
 {
-    public class ProfileModel
+    public class ProfilesModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

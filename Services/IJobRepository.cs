@@ -8,13 +8,13 @@ namespace RecruitmentPortalApp.Services
 {
     public interface IJobRepository
     {
-        ICollection<JobModel> GetJobs();
-        bool CreateJob(JobModel Job);
-        bool UpdateJob(JobModel Job);
-        bool DeleteJob(JobModel Job);
-        JobModel GetJob(int jobId);
-        JobModel GetJobApplicants(int jobId);
-        JobModel GetJobStages(int jobId);
+        ICollection<JobsModel> GetJobs();
+        bool CreateJob(JobsModel Job);
+        bool UpdateJob(JobsModel Job);
+        bool DeleteJob(JobsModel Job);
+        JobsModel GetJob(int jobId);
+        JobsModel GetJobApplicants(int jobId);
+        JobsModel GetJobStages(int jobId);
         bool JobExists(int jobId);
         bool Save();
     }

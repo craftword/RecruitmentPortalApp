@@ -13,7 +13,7 @@ namespace RecruitmentPortalApp.Models
         public int? JobId { get; set; }     
         public int? StageId { get; set; }
         [ForeignKey("JobId")]
-        public virtual JobModel Job { get; set; }
+        public virtual JobsModel Job { get; set; }
         [ForeignKey("StageId")]
         public virtual StagesModel Stage { get; set; }
     }

@@ -8,15 +8,15 @@ namespace RecruitmentPortalApp.Services
 {
     public interface IApplicationRepository
     {
-        ICollection<ApplicationModel> GetApplication();
-        bool CreateApplication(ApplicationModel Application);
-        bool UpdateApplication(ApplicationModel Application);
-        bool DeleteApplication(ApplicationModel Application);
-        ApplicationModel GetApplication(int Id);
-        ApplicationModel GetApplicationScoreboard(int Id);
-        ApplicationModel GetApplicationResponses(int Id);
-        bool AddScoreBoard(ScoreBoardModel scoreboard);
-        bool AddApplicantResponse(ApplicantResponseModel response);
+        ICollection<ApplicationsModel> GetApplication();
+        bool CreateApplication(ApplicationsModel Application);
+        bool UpdateApplication(ApplicationsModel Application);
+        bool DeleteApplication(ApplicationsModel Application);
+        ApplicationsModel GetApplication(int Id);
+        ApplicationsModel GetApplicationScoreboard(int Id);
+        ApplicationsModel GetApplicationResponses(int Id);
+        bool AddScoreBoard(ScoreBoardsModel scoreboard);
+        bool AddApplicantResponse(ApplicantResponsesModel response);
 
         bool ApplicationExists(int Id);
         bool Save();

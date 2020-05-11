@@ -8,11 +8,11 @@ namespace RecruitmentPortalApp.Services
 {
     public interface IProfileRepository
     {
-        ICollection<ProfileModel> GetProfiles();
-        bool CreateProfile(ProfileModel Profile);
-        bool UpdateProfile(ProfileModel Profile);
-        bool DeleteProfile(ProfileModel Profile);
-        ProfileModel GetProfile(int Id);
+        ICollection<ProfilesModel> GetProfiles();
+        bool CreateProfile(ProfilesModel Profile);
+        bool UpdateProfile(ProfilesModel Profile);
+        bool DeleteProfile(ProfilesModel Profile);
+        ProfilesModel GetProfile(int Id);
         bool ProfileExists(int Id);
         bool Save();
     }
