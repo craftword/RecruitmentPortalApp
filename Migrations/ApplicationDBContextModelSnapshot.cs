@@ -231,7 +231,7 @@ namespace RecruitmentPortalApp.Migrations
                         new
                         {
                             UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            RoleId = "a18be9c0-aa65-4af8-bd17-00bd9344e575"
+                            RoleId = "1"
                         });
                 });
 
@@ -460,14 +460,11 @@ namespace RecruitmentPortalApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("Profiles");
                 });
@@ -552,14 +549,11 @@ namespace RecruitmentPortalApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("StaffDocuments");
                 });
@@ -606,13 +600,13 @@ namespace RecruitmentPortalApp.Migrations
                         {
                             Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8c269bf1-2e52-49b1-8007-2eb3750f4c51",
+                            ConcurrencyStamp = "10a12f53-af30-42f2-b7bb-686c971458be",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDBE8DVeXRbZWV2t+raexDsfPwKVhlx9ceQvpHQ//gma+gqZWLiATbhjD9P2AbwHzg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOWlSmumgOn0wsb0VZQOQSKU9/EDrP37V0Cmvn9svlnHYiZKzs3wqq32v+AIIa8rJA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -715,7 +709,7 @@ namespace RecruitmentPortalApp.Migrations
                 {
                     b.HasOne("RecruitmentPortalApp.Models.UserModel", "User")
                         .WithMany("Profiles")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserID");
                 });
 
             modelBuilder.Entity("RecruitmentPortalApp.Models.QuestionsModel", b =>
@@ -740,7 +734,7 @@ namespace RecruitmentPortalApp.Migrations
                 {
                     b.HasOne("RecruitmentPortalApp.Models.UserModel", "User")
                         .WithMany("StaffDocuments")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserID");
                 });
 #pragma warning restore 612, 618
         }

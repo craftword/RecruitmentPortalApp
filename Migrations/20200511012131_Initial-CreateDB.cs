@@ -218,15 +218,14 @@ namespace RecruitmentPortalApp.Migrations
                     City = table.Column<string>(nullable: true),
                     HighestEducation = table.Column<string>(nullable: true),
                     UserID = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true),
                     Created_at = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Profiles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Profiles_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Profiles_AspNetUsers_UserID",
+                        column: x => x.UserID,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -241,15 +240,14 @@ namespace RecruitmentPortalApp.Migrations
                     Title = table.Column<string>(nullable: false),
                     Url = table.Column<string>(nullable: false),
                     UserID = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true),
                     Created_at = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StaffDocuments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StaffDocuments_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_StaffDocuments_AspNetUsers_UserID",
+                        column: x => x.UserID,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -428,12 +426,12 @@ namespace RecruitmentPortalApp.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", 0, "8c269bf1-2e52-49b1-8007-2eb3750f4c51", "UserModel", "admin@gmail.com", true, false, null, "admin@gmail.com", "admin", "AQAAAAEAACcQAAAAEDBE8DVeXRbZWV2t+raexDsfPwKVhlx9ceQvpHQ//gma+gqZWLiATbhjD9P2AbwHzg==", null, false, "", false, "admin" });
+                values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", 0, "10a12f53-af30-42f2-b7bb-686c971458be", "UserModel", "admin@gmail.com", true, false, null, "admin@gmail.com", "admin", "AQAAAAEAACcQAAAAEOWlSmumgOn0wsb0VZQOQSKU9/EDrP37V0Cmvn9svlnHYiZKzs3wqq32v+AIIa8rJA==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "UserId", "RoleId" },
-                values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", "a18be9c0-aa65-4af8-bd17-00bd9344e575" });
+                values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", "1" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionId",
@@ -510,9 +508,9 @@ namespace RecruitmentPortalApp.Migrations
                 column: "StageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Profiles_UserId",
+                name: "IX_Profiles_UserID",
                 table: "Profiles",
-                column: "UserId");
+                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Questions_StageId",
@@ -530,9 +528,9 @@ namespace RecruitmentPortalApp.Migrations
                 column: "StageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StaffDocuments_UserId",
+                name: "IX_StaffDocuments_UserID",
                 table: "StaffDocuments",
-                column: "UserId");
+                column: "UserID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

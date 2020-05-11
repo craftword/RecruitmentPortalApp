@@ -33,7 +33,7 @@ namespace RecruitmentPortalApp.Services
             // any guid
             const string ADMIN_ID = "a18be9c0-aa65-4af8-bd17-00bd9344e575";
             // any guid, but nothing is against to use the same one
-            const string ROLE_ID = ADMIN_ID;
+            const string ROLE_ID = "1";
 
             builder.Entity<IdentityRole>().HasData(
                 new { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
