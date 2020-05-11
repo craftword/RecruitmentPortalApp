@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecruitmentPortalApp.Services
 {
-    public interface IOrganizationDocs
+    public interface IOrganizationDocsRepository
     {
         ICollection<OrganizationDocsModel> GetOrganizationDocs();
         bool CreateOrganizationDocs(OrganizationDocsModel OrganizationDocs);
