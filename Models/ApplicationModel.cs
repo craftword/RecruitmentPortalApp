@@ -19,6 +19,9 @@ namespace RecruitmentPortalApp.Models
         public int? JobID { get; set; }
         [ForeignKey("JobID")]
         public virtual JobModel Job { get; set; }
+        public string? UserID { get; set; }
+        [ForeignKey("UserID")]
+        public virtual UserModel User { get; set; }
         public DateTime Created_at { get; set; }
 
         public virtual ICollection<ScoreBoardModel> ScoreBoards { get; set; }
