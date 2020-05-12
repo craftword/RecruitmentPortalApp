@@ -45,7 +45,7 @@ namespace RecruitmentPortalApp
             services.AddScoped<IOrganizationDocsRepository, OrganizationDocsRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
             services.AddScoped<IQuestionsRepository, QuestionsRepository>();
-            //services.AddScoped<IStaffDocsRepository, StaffDocumentRepository>();
+            services.AddScoped<IStaffDocsRepository, StaffDocsRepository>();
             services.AddScoped<IStagesRepository, StagesRepository>();
 
 
