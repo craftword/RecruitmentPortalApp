@@ -19,7 +19,7 @@ namespace RecruitmentPortalApp.Models
         public DateTime Created_at { get; set; }
 
         public virtual ICollection<JobStagesModel> JobStages { get; set; }
-        public virtual ICollection<ScoreBoardModel> ScoreBoards { get; set; }
+        public virtual ICollection<ScoreBoardsModel> ScoreBoards { get; set; }
         public virtual ICollection<QuestionsModel> Questions { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecruitmentPortalApp.Services;
 
 namespace RecruitmentPortalApp.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200511154607_Modify-JobTable")]
+    partial class ModifyJobTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -351,13 +353,20 @@ namespace RecruitmentPortalApp.Migrations
 
             modelBuilder.Entity("RecruitmentPortalApp.Models.JobStagesModel", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int?>("JobId")
                         .HasColumnType("int");
 
                     b.Property<int?>("StageId")
                         .HasColumnType("int");
 
-                    b.HasKey("JobId", "StageId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobId");
 
                     b.HasIndex("StageId");
 
@@ -593,13 +602,13 @@ namespace RecruitmentPortalApp.Migrations
                         {
                             Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "39649594-4ede-49c1-b56d-7a5c4070861a",
+                            ConcurrencyStamp = "7f5ab9d3-f782-4bf1-a1ec-f1064006053a",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKV4Su7B1xz5CBAma4Gl1bXWVo0e52R8HEgjLhN4uXYLsP32N32wVOsY5Ua/b1n8+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENyBA6qUXsc3o/riV6Vd/aiijhOsx3cmZJ/IgFijvUNfTk3Bkp4jIFK4eGQumfCFqA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -691,15 +700,11 @@ namespace RecruitmentPortalApp.Migrations
                 {
                     b.HasOne("RecruitmentPortalApp.Models.JobsModel", "Job")
                         .WithMany("JobStages")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("JobId");
 
                     b.HasOne("RecruitmentPortalApp.Models.StagesModel", "Stage")
                         .WithMany("JobStages")
-                        .HasForeignKey("StageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StageId");
                 });
 
             modelBuilder.Entity("RecruitmentPortalApp.Models.ProfilesModel", b =>

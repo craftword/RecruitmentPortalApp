@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecruitmentPortalApp.Models
 {
-    public class JobModel
+    public class JobsModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,6 +21,7 @@ namespace RecruitmentPortalApp.Models
         public DateTime ClosingDate { get; set; }
 
         public virtual ICollection<JobStagesModel> JobStages { get; set; }
+        public virtual ICollection<ApplicationsModel> Applications { get; set; }
 
 
     }

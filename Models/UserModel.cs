@@ -7,8 +7,8 @@ namespace RecruitmentPortalApp.Models
 {
     public class UserModel : IdentityUser
     {
-        public virtual ICollection<ProfileModel> Profiles { get; set; }
-        public virtual ICollection<ApplicationModel> Applications { get; set; }
+        public virtual ICollection<ProfilesModel> Profiles { get; set; }
+        public virtual ICollection<ApplicationsModel> Applications { get; set; }
         public virtual ICollection<StaffDocsModel> StaffDocuments { get; set; }
     }
 }

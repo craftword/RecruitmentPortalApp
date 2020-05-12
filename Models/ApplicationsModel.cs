@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecruitmentPortalApp.Models
 {
-    public class ApplicationModel
+    public class ApplicationsModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,13 +18,13 @@ namespace RecruitmentPortalApp.Models
         public string Reason { get; set; }
         public int? JobID { get; set; }
         [ForeignKey("JobID")]
-        public virtual JobModel Job { get; set; }
+        public virtual JobsModel Job { get; set; }
         public string? UserID { get; set; }
         [ForeignKey("UserID")]
         public virtual UserModel User { get; set; }
         public DateTime Created_at { get; set; }
 
-        public virtual ICollection<ScoreBoardModel> ScoreBoards { get; set; }
-        public virtual ICollection<ApplicantResponseModel> ApplicationResponses { get; set; }
+        public virtual ICollection<ScoreBoardsModel> ScoreBoards { get; set; }
+        public virtual ICollection<ApplicantResponsesModel> ApplicationResponses { get; set; }
     }
 }
