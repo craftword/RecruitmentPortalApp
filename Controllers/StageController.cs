@@ -11,47 +11,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace RecruitmentPortalApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JobController : ControllerBase
+    public class StageController : ControllerBase
     {
-        private readonly IJobRepository _jobRepository;
+        private readonly IStagesRepository _stageRepository;
         private readonly IMapper _mapper;
-        public JobController(IJobRepository jobRepository, IMapper mapper)
+        public StageController(IStagesRepository stageRepository, IMapper mapper)
         {
-            _jobRepository = jobRepository;
+            _stageRepository = stageRepository;
             _mapper = mapper;
         }
 
-        // GET: api/Job
+        // GET: api/Stage
         [HttpGet]
         [ProducesResponseType(400)]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<JobDto>))]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<StageDto>))]
 
-        public IActionResult GetJobs()
+        public IActionResult GetStages()
         {
-            var jobs = _jobRepository.GetJobs();
+            var stages = _stageRepository.GetStages();
 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            return Ok(_mapper.Map<ICollection<JobsModel>, ICollection<JobDto>>(jobs));
+            return Ok(_mapper.Map<ICollection<StagesModel>, ICollection<StageDto>>(stages));
 
         }
 
-        // GET: api/Job/5
+        // GET: api/Stage/5
         [HttpGet("{id}")]
         //[Authorize(Roles = "Admin")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
-        [ProducesResponseType(200, Type = typeof(JobDto))]
-        public IActionResult GetJob([FromRoute] int id)
+        [ProducesResponseType(200, Type = typeof(StageDto))]
+        public IActionResult GetSatge([FromRoute] int id)
         {
-            if (!_jobRepository.JobExists(id))
+            if (!_stageRepository.StageExists(id))
                 return NotFound();
 
 
@@ -60,7 +61,7 @@ namespace RecruitmentPortalApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = _jobRepository.GetJob(id);
+            var result = _stageRepository.GetStage(id);
 
             if (result == null)
             {
@@ -68,56 +69,56 @@ namespace RecruitmentPortalApp.Controllers
             }
 
 
-            return Ok(_mapper.Map<JobsModel, JobDto>(result));
+            return Ok(_mapper.Map<StagesModel, StageDto>(result));
         }
 
 
         // POST: api/Job
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        [ProducesResponseType(201, Type = typeof(JobsModel))]
+        [ProducesResponseType(201, Type = typeof(StagesModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
-        public IActionResult PostJob([FromBody] JobsModel JobModel)
+        public IActionResult PostSatge([FromBody] StagesModel Model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (!_jobRepository.CreateJob(JobModel))
+            if (!_stageRepository.CreateStages(Model))
             {
                 ModelState.AddModelError("", $"Something went wrong saving the job " +
-                                            $"{JobModel.Title}");
+                                            $"{Model.Name}");
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { id = JobModel.Id }, JobModel);
+            return CreatedAtAction("GetJob", new { id = Model.Id }, Model);
         }
 
 
-        // PUT: api/Job/5
+        // PUT: api/Stage/5
         [HttpPut("{id}")]
         //[Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
-        public IActionResult PutJob([FromRoute] int id, [FromBody] JobsModel JobModel)
+        public IActionResult PutStage([FromRoute] int id, [FromBody] StagesModel Model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != JobModel.Id)
+            if (id != Model.Id)
             {
                 return BadRequest();
             }
 
-            if (!_jobRepository.UpdateJob(JobModel))
+            if (!_stageRepository.UpdateStages(Model))
             {
                 ModelState.AddModelError("", $"Something went wrong updating the Product " +
-                                            $"{JobModel.Title}");
+                                            $"{Model.Name}");
                 return StatusCode(500, ModelState);
             }
 
@@ -125,7 +126,7 @@ namespace RecruitmentPortalApp.Controllers
 
         }
 
-        // DELETE: api/Job/5
+        // DELETE: api/Stage/5
         [HttpDelete("{id}")]
         //[Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
@@ -139,73 +140,44 @@ namespace RecruitmentPortalApp.Controllers
             }
 
 
-            var result = _jobRepository.GetJob(id);
+            var result = _stageRepository.GetStage(id);
             if (result == null)
             {
                 return NotFound();
             }
 
-            _jobRepository.DeleteJob(result);
-
-
-            return Ok(_mapper.Map<JobsModel, JobDto>(result));
-        }
-
-        // GET A PARTICULAR JOB APPLICANTS
-        [HttpGet("{id}/applicants")]
-        //[Authorize(Roles = "Admin")]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
-        public IActionResult GetAJobApplicants([FromRoute] int id)
-        {
-            if (!_jobRepository.JobExists(id))
-                return NotFound();
-
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var result = _jobRepository.GetJobApplicants(id);
-
-            if (result == null)
-            {
-                return NotFound();
-            }
-
-
-            return Ok(_mapper.Map<JobsModel, JobApplicantsDto>(result));
-        }
-
-        // GET A PARTICULAR JOB STAGES
-        [HttpGet("{id}/stages")]
-        //[Authorize(Roles = "Admin")]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
-        public IActionResult GetAJobStages([FromRoute] int id)
-        {
-            if (!_jobRepository.JobExists(id))
-                return NotFound();
-
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var result = _jobRepository.GetJobStages(id);
-
-            if (result == null)
-            {
-                return NotFound();
-            }
+            _stageRepository.DeleteStages(result);
 
 
             return Ok(_mapper.Map<StagesModel, StageDto>(result));
         }
 
+        // GET: api/Stage/5/questions
+        [HttpGet("{id}/questions")]
+        //[Authorize(Roles = "Admin")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(200, Type = typeof(StagesModel))]
+        public IActionResult GetSatgeQuestions([FromRoute] int id)
+        {
+            if (!_stageRepository.StageExists(id))
+                return NotFound();
+
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = _stageRepository.GetStageQuestions(id);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+
+            return Ok(result);
+        }
     }
 }
