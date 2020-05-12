@@ -40,6 +40,15 @@ namespace RecruitmentPortalApp
             services.AddDbContext<ApplicationDBContext>(options
                => options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
 
+            services.AddScoped<IApplicationRepository, ApplicationRepository>();
+            services.AddScoped<IJobRepository, JobRepository>();
+            services.AddScoped<IOrganizationDocsRepository, OrganizationDocsRepository>();
+            services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IQuestionsRepository, QuestionsRepository>();
+            //services.AddScoped<IStaffDocsRepository, StaffDocumentRepository>();
+            services.AddScoped<IStagesRepository, StagesRepository>();
+
+
             services.AddAutoMapper(typeof(Startup));
 
             services.AddIdentity<UserModel, IdentityRole>(options =>
