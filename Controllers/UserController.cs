@@ -8,7 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using RecruitmentPortalApp.Models;
-//using RecruitmentPortalApp.Dtos;
+using RecruitmentPortalApp.Dtos;
+
 
 namespace RecruitmentPortalApp.Controllers
 {
@@ -47,9 +48,9 @@ namespace RecruitmentPortalApp.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(UserDto))]
-        public async Task<IActionResult> GetUser([FromRoute] string id)
+        public async Task<IActionResult> GetUser( string id)
         {
-            if (_userManager.FindByIdAsync(id) == null)
+            if (await _userManager.FindByIdAsync(id) == null)
                 return NotFound();
 
             var User = await _userManager.FindByIdAsync(id);
@@ -60,6 +61,24 @@ namespace RecruitmentPortalApp.Controllers
             }
             var userDto = _mapper.Map<UserModel, UserDto>(User);
             return Ok(userDto);
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        public async Task<IActionResult> DeleteUser(UserModel user)
+        {
+            if (await _userManager.FindByEmailAsync(user.Email) == null)
+                return NotFound();
+
+            var User = await _userManager.DeleteAsync(user);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            return Ok(User);
         }
 
     }
