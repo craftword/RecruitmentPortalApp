@@ -43,7 +43,7 @@ namespace RecruitmentPortalApp.Controllers
 
             if (result.Succeeded)
             {
-                var idResult = await _userManager.AddToRoleAsync(user, "Customer");
+                var idResult = await _userManager.AddToRoleAsync(user, "Applicant");
                 return Ok(new { Username = user.UserName, userCreated = true });
             }
 
@@ -59,8 +59,7 @@ namespace RecruitmentPortalApp.Controllers
             {
                 var roles = await _userManager.GetRolesAsync(user);
                 List<Claim> claims = new List<Claim>() {
-                    new Claim(JwtRegisteredClaimNames.Sub, user.UserName)
-                    //new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Sub, user.UserName)                    
                     
                 };
 
