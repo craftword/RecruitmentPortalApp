@@ -1,4 +1,5 @@
-﻿using RecruitmentPortalApp.Models;
+﻿using RecruitmentPortalApp.Dtos;
+using RecruitmentPortalApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

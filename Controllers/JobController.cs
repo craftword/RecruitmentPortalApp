@@ -75,7 +75,7 @@ namespace RecruitmentPortalApp.Controllers
         // POST: api/Job
         [HttpPost]
         //[Authorize(Roles = "Admin")]
-        [ProducesResponseType(201, Type = typeof(JobsModel))]
+        [ProducesResponseType(201, Type = typeof(JobDto))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
         public IActionResult PostJob([FromBody] JobsModel JobModel)
@@ -92,7 +92,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJobModel", new { id = JobModel.Id }, JobModel);
+            return CreatedAtAction("GetJob", new { id = JobModel.Id }, JobModel);
         }
 
 
