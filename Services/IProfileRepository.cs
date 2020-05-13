@@ -8,7 +8,7 @@ namespace RecruitmentPortalApp.Services
 {
     public interface IProfileRepository
     {
-        ICollection<ProfilesModel> GetProfiles();
+        
         bool CreateProfile(ProfilesModel Profile);
         bool UpdateProfile(ProfilesModel Profile);
         bool DeleteProfile(ProfilesModel Profile);

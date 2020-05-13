@@ -21,13 +21,18 @@ namespace RecruitmentPortalApp.Controllers
         private readonly UserManager<UserModel> _userManager;        
         private readonly IMapper _mapper;
         private readonly ApplicationDBContext _ApplicationDBContext;
+        private readonly IProfileRepository _profileRepository;
+        private readonly IStaffDocsRepository _staffRepository;
 
 
-        public UserController(UserManager<UserModel> userManager, IMapper mapper, ApplicationDBContext applicationDbContext)
+        public UserController(UserManager<UserModel> userManager, IMapper mapper, 
+            ApplicationDBContext applicationDbContext, IProfileRepository profileRepository, IStaffDocsRepository staffRepository)
         {
             _userManager = userManager;            
             _mapper = mapper;
             _ApplicationDBContext = applicationDbContext;
+            _profileRepository = profileRepository;
+            _staffRepository = staffRepository;
 
         }
 
@@ -141,5 +146,55 @@ namespace RecruitmentPortalApp.Controllers
 
             return Ok(_mapper.Map<UserModel, UserDto>(result));
         }
+
+        //========= Users Profiles ==============  
+
+        // POST: api/user/Profile
+        [HttpPost("profile")]
+        //[Authorize(Roles = "Admin")]
+        [ProducesResponseType(201, Type = typeof(ProfilesModel))]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(400)]
+        public IActionResult PostProfile([FromBody] ProfilesModel Model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!_profileRepository.CreateProfile(Model))
+            {
+                ModelState.AddModelError("", $"Something went wrong saving the job " +
+                                            $"{Model.Id}");
+                return StatusCode(500, ModelState);
+            }
+
+            return CreatedAtAction("GetJob", new { id = Model.Id }, Model);
+        }
+        //========= Users Documents ==============  
+
+        // POST: api/user/Documents
+        [HttpPost("document")]        
+        [ProducesResponseType(201, Type = typeof(StaffDocsModel))]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(400)]
+        public IActionResult PostDocument([FromBody] StaffDocsModel Model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!_staffRepository.CreateStaffDocs(Model))
+            {
+                ModelState.AddModelError("", $"Something went wrong saving the job " +
+                                            $"{Model.Id}");
+                return StatusCode(500, ModelState);
+            }
+
+            return CreatedAtAction("GetJob", new { id = Model.Id }, Model);
+        }
+
+
     }
 }

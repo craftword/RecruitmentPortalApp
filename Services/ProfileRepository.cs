@@ -34,10 +34,7 @@ namespace RecruitmentPortalApp.Services
             return profile;
         }
 
-        public ICollection<ProfilesModel> GetProfiles()
-        {
-            return _ApplicationDBContext.Profiles.OrderBy(b => b.Id).ToList();
-        }
+       
 
         public bool ProfileExists(int Id)
         {
