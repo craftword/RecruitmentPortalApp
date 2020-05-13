@@ -16,7 +16,7 @@ namespace RecruitmentPortalApp.Models
         [Required]
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Roles { get; set; }
+        public string JobRoles { get; set; }
         public string Category { get; set; }
         public DateTime ClosingDate { get; set; }
 

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RecruitmentPortalApp.Services
 {
-    public class StaffDocumentRepository
+    public class StaffDocsRepository : IStaffDocsRepository
     {
         private readonly ApplicationDBContext _ApplicationDBContext;
 
-        public StaffDocumentRepository(ApplicationDBContext applicationDbContext)
+        public StaffDocsRepository(ApplicationDBContext applicationDbContext)
         {
             _ApplicationDBContext = applicationDbContext;
         }

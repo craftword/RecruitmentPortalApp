@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RecruitmentPortalApp.Dtos;
 using RecruitmentPortalApp.Models;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,19 @@ namespace RecruitmentPortalApp.Services
                      .SelectMany(m => m.JobStages.Select(mc => mc.Stage)).FirstOrDefault();
 
             return stages;
+        }
+
+        public bool AddJobStages(int jobId, int stageId)
+        {
+
+            JobStagesModel jobStage = new JobStagesModel
+            {
+                JobId = jobId,
+                StageId = stageId
+            };
+            _ApplicationDBContext.Add(jobStage);
+
+            return Save();
         }
 
         public bool JobExists(int jobId)

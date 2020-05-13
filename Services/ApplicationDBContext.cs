@@ -25,6 +25,7 @@ namespace RecruitmentPortalApp.Services
         public virtual DbSet<ScoreBoardsModel> ScoreBoards { get; set; }
         public virtual DbSet<StaffDocsModel> StaffDocuments { get; set; }
         public virtual DbSet<StagesModel> Stages { get; set; }
+        public virtual DbSet<UserModel> NewUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
