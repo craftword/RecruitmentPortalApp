@@ -45,7 +45,6 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/Job/5
         [HttpGet("{id}")]
-        //[Authorize(Roles = "Admin")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobDto))]
@@ -74,7 +73,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // POST: api/Job
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(201, Type = typeof(JobsModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -98,7 +97,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // PUT: api/Job/5
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -127,7 +126,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // DELETE: api/Job/5
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -153,7 +152,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET A PARTICULAR JOB APPLICANTS
         [HttpGet("{id}/applicants")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
@@ -181,7 +180,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET A PARTICULAR JOB STAGES
         [HttpGet("{id}/stages")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Applicant")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
@@ -205,6 +204,33 @@ namespace RecruitmentPortalApp.Controllers
 
 
             return Ok(_mapper.Map<StagesModel, StageDto>(result));
+        }
+
+        // ADD STAGE A PARTICULAR JOB 
+        [HttpPost("{id}/stages")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
+        public IActionResult AddAStagesToAJob([FromRoute] int JobId, [FromBody] int stageId)
+        {
+            if (!_jobRepository.JobExists(JobId))
+                return NotFound();
+
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!_jobRepository.AddJobStages(JobId, stageId))
+            {
+                ModelState.AddModelError("", $"Something went wrong saving the job " +
+                                            $"{JobId}");
+                return StatusCode(500, ModelState);
+            }
+
+            return CreatedAtAction("AddJobStage", new { id = JobId }, JobId);
         }
 
     }

@@ -14,6 +14,7 @@ namespace RecruitmentPortalApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+        
     public class ApplicationController : ControllerBase
     {
         private readonly IApplicationRepository _applicationRepository;
@@ -26,11 +27,11 @@ namespace RecruitmentPortalApp.Controllers
 
         // POST: api/Application
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Applicant")]
         [ProducesResponseType(201, Type = typeof(ApplicationsModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
-        public IActionResult PostJob([FromBody] ApplicationsModel application)
+        public IActionResult PostApplication([FromBody] ApplicationsModel application)
         {
             if (!ModelState.IsValid)
             {
@@ -49,6 +50,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/Applications
         [HttpGet]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(IEnumerable<ApplicationsDto>))]
 
@@ -67,7 +69,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/application/5
         [HttpGet("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(ApplicationsDto))]
@@ -95,7 +97,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // ALL SCORES OF A GIVEN USER AT A PARTICULAR APPLICATION
         [HttpGet("{id}/scores")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
@@ -123,7 +125,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // ALL RESPONSE OF A GIVEN USER AT A PARTICULAR APPLICATION
         [HttpGet("{id}/reponses")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
@@ -151,7 +153,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // POST: api/Application/Score
         [HttpPost("score")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(201, Type = typeof(ScoreBoardsModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -174,7 +176,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // POST: api/Application/Response
         [HttpPost("reponse")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(201, Type = typeof(ApplicantResponsesModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]

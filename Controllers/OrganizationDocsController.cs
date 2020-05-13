@@ -27,6 +27,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/OrganizationDocs
         [HttpGet]
+        [AllowAnonymous]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(IEnumerable<OrganizationDocsModel>))]
 
@@ -45,7 +46,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/OrganizationDocs/5
         [HttpGet("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(OrganizationDocsModel))]
@@ -74,7 +75,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // POST: api/OrganizationDocs/
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(201, Type = typeof(OrganizationDocsModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -98,7 +99,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // PUT: api/OrganizationDocs//5
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -127,7 +128,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // DELETE: api/OrganizationDocs/5
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]

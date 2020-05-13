@@ -27,6 +27,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/Questions
         [HttpGet]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(IEnumerable<QuestionsDto>))]
 
@@ -45,7 +46,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/Questions/5
         [HttpGet("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Applicant")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(QuestionsDto))]
@@ -74,7 +75,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // POST: api/Question
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(201, Type = typeof(QuestionsModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -98,7 +99,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // PUT: api/Questions/5
         [HttpPut("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -127,7 +128,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // DELETE: api/Question/5
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]

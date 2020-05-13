@@ -14,6 +14,7 @@ namespace RecruitmentPortalApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class RoleController : ControllerBase
     {
         private readonly UserManager<UserModel> _userManager;
@@ -30,6 +31,7 @@ namespace RecruitmentPortalApp.Controllers
 
         //========= Roles ==============        
         [HttpGet]
+        [AllowAnonymous]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
         public IActionResult ListAllRoles()
@@ -45,6 +47,7 @@ namespace RecruitmentPortalApp.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
         public async Task<IActionResult> GetRole(string id)
@@ -62,6 +65,7 @@ namespace RecruitmentPortalApp.Controllers
             return Ok(role);
         }
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
         public async Task<IActionResult> EditRole(IdentityRole model)
@@ -85,6 +89,7 @@ namespace RecruitmentPortalApp.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
         public async Task<IActionResult> DeleteRole(IdentityRole model)
@@ -114,6 +119,7 @@ namespace RecruitmentPortalApp.Controllers
 
         [Route("AddUserToRole")]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
         public async Task<IActionResult> AddUsersToRoles(string id, string rolename)
@@ -144,6 +150,7 @@ namespace RecruitmentPortalApp.Controllers
 
         [Route("DeleteUserInRole")]
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
         public async Task<IActionResult> DeleteUserInRole(string id, string rolename)

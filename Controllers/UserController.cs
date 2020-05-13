@@ -16,6 +16,7 @@ namespace RecruitmentPortalApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   
     public class UserController : ControllerBase
     {
         private readonly UserManager<UserModel> _userManager;        
@@ -38,6 +39,7 @@ namespace RecruitmentPortalApp.Controllers
 
         //========= Users ==============        
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(ICollection<UserDto>))]
         public IActionResult ListAllUser()
@@ -53,6 +55,7 @@ namespace RecruitmentPortalApp.Controllers
         }
         
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin, Onboarding, Staff")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(UserDto))]
         public async Task<IActionResult> GetUser( string id)
@@ -71,6 +74,7 @@ namespace RecruitmentPortalApp.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin, Onboarding, Staff")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         public async Task<IActionResult> DeleteUser(UserModel user)
@@ -89,7 +93,7 @@ namespace RecruitmentPortalApp.Controllers
         }
         // ALL APPLICATIONS OF A GIVEN USER 
         [HttpGet("{id}/application")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Onboarding, Staff")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
@@ -119,7 +123,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // ALL DOCUMENTS OF A GIVEN USER 
         [HttpGet("{id}/documents")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Onboarding, Staff")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
@@ -151,7 +155,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // POST: api/user/Profile
         [HttpPost("profile")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Onboarding, Staff")]
         [ProducesResponseType(201, Type = typeof(ProfilesModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
@@ -174,7 +178,8 @@ namespace RecruitmentPortalApp.Controllers
         //========= Users Documents ==============  
 
         // POST: api/user/Documents
-        [HttpPost("document")]        
+        [HttpPost("document")]
+        [Authorize(Roles = "Admin, Onboarding, Staff")]
         [ProducesResponseType(201, Type = typeof(StaffDocsModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]

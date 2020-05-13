@@ -59,6 +59,19 @@ namespace RecruitmentPortalApp.Services
             return stages;
         }
 
+        public bool AddJobStages(int jobId, int stageId)
+        {
+
+            JobStagesModel jobStage = new JobStagesModel
+            {
+                JobId = jobId,
+                StageId = stageId
+            };
+            _ApplicationDBContext.Add(jobStage);
+
+            return Save();
+        }
+
         public bool JobExists(int jobId)
         {
             return _ApplicationDBContext.Jobs.Any(b => b.Id == jobId);
