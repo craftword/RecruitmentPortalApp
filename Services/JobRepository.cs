@@ -64,8 +64,8 @@ namespace RecruitmentPortalApp.Services
 
             JobStagesModel jobStage = new JobStagesModel
             {
-                JobId = jobId,
-                StageId = stageId
+                JobsId = jobId,
+                StagesId = stageId
             };
             _ApplicationDBContext.Add(jobStage);
 

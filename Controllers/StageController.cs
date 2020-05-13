@@ -80,7 +80,7 @@ namespace RecruitmentPortalApp.Controllers
         [ProducesResponseType(201, Type = typeof(StagesModel))]
         [ProducesResponseType(500)]
         [ProducesResponseType(400)]
-        public IActionResult PostSatge([FromBody] StagesModel Model)
+        public IActionResult PostStage([FromBody] StagesModel Model)
         {
             if (!ModelState.IsValid)
             {

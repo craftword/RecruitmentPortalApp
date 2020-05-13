@@ -6,12 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecruitmentPortalApp.Models
 {
-    public class JobStagesModel
-    {
+    public class JobStagesModel    {
                
-        public int? JobId { get; set; }
+        public int? JobsId { get; set; }
         public virtual JobsModel Job { get; set; }
-        public int? StageId { get; set; }                    
+        public int? StagesId { get; set; }                    
         public virtual StagesModel Stage { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace RecruitmentPortalApp.Services
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<JobStagesModel>().HasKey(sc => new { sc.JobId, sc.StageId });
+            builder.Entity<JobStagesModel>().HasKey(sc => new { sc.JobsId, sc.StagesId });
             #region "Seed Data"
             // any guid
             const string ADMIN_ID = "a18be9c0-aa65-4af8-bd17-00bd9344e575";

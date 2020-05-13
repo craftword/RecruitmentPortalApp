@@ -16,8 +16,8 @@ namespace RecruitmentPortalApp.Models
         public string Resume { get; set; }
         public string Status { get; set; }
         public string Reason { get; set; }
-        public int? JobID { get; set; }
-        [ForeignKey("JobID")]
+        public int? JobsID { get; set; }
+        [ForeignKey("JobsID")]
         public virtual JobsModel Job { get; set; }
         public string? UserID { get; set; }
         [ForeignKey("UserID")]

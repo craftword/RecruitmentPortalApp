@@ -15,6 +15,8 @@ namespace RecruitmentPortalApp.Dtos
             .ReverseMap();
             CreateMap<StageDto, StagesModel>()
            .ReverseMap();
+            CreateMap<JobApplicantsDto, JobsModel>()
+            .ReverseMap();
         }
     }
 }

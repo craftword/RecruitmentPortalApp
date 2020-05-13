@@ -212,9 +212,9 @@ namespace RecruitmentPortalApp.Controllers
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
-        public IActionResult AddAStagesToAJob([FromRoute] int JobId, [FromBody] int stageId)
+        public IActionResult AddAStagesToAJob(int id, [FromRoute] int stageId)
         {
-            if (!_jobRepository.JobExists(JobId))
+            if (!_jobRepository.JobExists(id))
                 return NotFound();
 
 
@@ -223,14 +223,14 @@ namespace RecruitmentPortalApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!_jobRepository.AddJobStages(JobId, stageId))
+            if (!_jobRepository.AddJobStages(id, stageId))
             {
                 ModelState.AddModelError("", $"Something went wrong saving the job " +
-                                            $"{JobId}");
+                                            $"{id}");
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("AddJobStage", new { id = JobId }, JobId);
+            return CreatedAtAction("AddJobStage", new { id = id }, id);
         }
 
     }
