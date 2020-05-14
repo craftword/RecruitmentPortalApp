@@ -13,7 +13,7 @@ namespace RecruitmentPortalApp.Models
         public string Title { get; set; }
         [Required]
         public string Url { get; set; }
-        public string? UserID { get; set; }
+        public string UserID { get; set; }
         
         public virtual UserModel User { get; set; }
         public DateTime Created_at { get; set; }

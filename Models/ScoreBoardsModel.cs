@@ -9,8 +9,8 @@ namespace RecruitmentPortalApp.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }        
-        public int? StagesId { get; set; }
-        public int? ApplicationsId { get; set; }
+        public int StageId { get; set; }
+        public int ApplicationId { get; set; }
         public int Score { get; set; }
         public DateTime Created_at { get; set; }
        

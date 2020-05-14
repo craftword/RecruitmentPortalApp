@@ -7,9 +7,9 @@ namespace RecruitmentPortalApp.Models
 {
     public class JobStagesModel    {
                
-        public int? JobsId { get; set; }
+        public int? JobId { get; set; }
         public virtual JobsModel Job { get; set; }
-        public int? StagesId { get; set; }                    
+        public int? StageId { get; set; }                    
         public virtual StagesModel Stage { get; set; }
     }
 }

@@ -11,8 +11,8 @@ namespace RecruitmentPortalApp.Models
         public int Id { get; set; }
         [Required]
         public string Content { get; set; }        
-        public int? QuestionsId { get; set; }
-        public int? ApplicationsId { get; set; }
+        public int? QuestionId { get; set; }
+        public int? ApplicationId { get; set; }
         public DateTime Created_at { get; set; }        
         public virtual QuestionsModel Question { get; set; }      
         public virtual ApplicationsModel Application { get; set; }

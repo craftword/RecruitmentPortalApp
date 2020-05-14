@@ -19,7 +19,6 @@ namespace RecruitmentPortalApp.Models
         public string JobRoles { get; set; }
         public string Category { get; set; }
         public DateTime ClosingDate { get; set; }
-
         public virtual ICollection<JobStagesModel> JobStages { get; set; }
         public virtual ICollection<ApplicationsModel> Applications { get; set; }
 

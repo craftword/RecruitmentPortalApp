@@ -45,7 +45,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { Jobsid = application.Id }, application);
+            return CreatedAtAction("GetJob", new { JobId = application.Id }, application);
         }
 
         // GET: api/Applications
@@ -171,7 +171,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { Jobsid = score.Id }, score);
+            return CreatedAtAction("GetJob", new { JobId = score.Id }, score);
         }
 
         // POST: api/Application/Response
@@ -194,7 +194,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { Jobsid = response.Id }, response);
+            return CreatedAtAction("GetJob", new { JobId = response.Id }, response);
         }
     }
 }

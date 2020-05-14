@@ -91,7 +91,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { Jobsid = JobModel.Id }, JobModel);
+            return Ok(new { Job = JobModel.Title, jobCreated = true });
         }
 
 
@@ -230,7 +230,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("AddJobStage", new { Jobsid = id }, id);
+            return Ok(new { jobStageCreated = true });
         }
 
     }
