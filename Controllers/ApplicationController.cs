@@ -171,7 +171,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { JobId = score.Id }, score);
+            return Ok(new { questionCreated = true });
         }
 
         // POST: api/Application/Response

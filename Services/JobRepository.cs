@@ -67,9 +67,10 @@ namespace RecruitmentPortalApp.Services
                 JobId = jobId,
                 StageId = stageId
             };
-            _ApplicationDBContext.Add(jobStage);
-
-            return Save();
+            //_ApplicationDBContext.Add(jobStage);
+            _ApplicationDBContext.JobStages.Add(jobStage);
+            var saved = _ApplicationDBContext.SaveChanges();
+            return saved >= 0 ? true : false;
         }
 
         public bool JobExists(int jobId)

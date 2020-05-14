@@ -173,7 +173,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { JobId = Model.Id }, Model);
+            return Ok(new { userProfileAdded = true });
         }
         //========= Users Documents ==============  
 
@@ -197,7 +197,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { JobId = Model.Id }, Model);
+            return Ok(new { userDocumentAdded = true });
         }
 
 

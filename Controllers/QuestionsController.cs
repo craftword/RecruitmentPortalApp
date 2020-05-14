@@ -17,7 +17,7 @@ namespace RecruitmentPortalApp.Controllers
     [ApiController]
     public class QuestionsController : ControllerBase
     {
-        private readonly IQuestionsRepository _questionsRepository;
+        private readonly IQuestionsRepository _questionsRepository;       
         private readonly IMapper _mapper;
         public QuestionsController(IQuestionsRepository questionsRepository, IMapper mapper)
         {
@@ -93,7 +93,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { JobId = Model.Id }, Model);
+            return Ok(new { questionCreated = true });
         }
 
 
@@ -152,6 +152,30 @@ namespace RecruitmentPortalApp.Controllers
             return Ok(_mapper.Map<QuestionsModel, QuestionsDto>(result));
         }
 
-            
+        // POST: api/Question/answer
+        [HttpPost("Answer")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(201, Type = typeof(AnswersModel))]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(400)]
+        public IActionResult PostAnswer([FromBody] AnswersModel Model)
+        {
+           
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!_questionsRepository.CreateQuestionAnswer(Model))
+            {
+                ModelState.AddModelError("", $"Something went wrong saving the job " +
+                                            $"{Model.Id}");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok(new { answerCreated = true });
+        }
+
+
     }
 }
