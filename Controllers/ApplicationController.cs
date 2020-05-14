@@ -45,7 +45,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { JobId = application.Id }, application);
+            return Ok(new { applicationCreated = true });
         }
 
         // GET: api/Applications
@@ -194,7 +194,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { JobId = response.Id }, response);
+            return Ok(new { responseCreated = true });
         }
     }
 }
