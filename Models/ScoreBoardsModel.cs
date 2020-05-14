@@ -13,11 +13,8 @@ namespace RecruitmentPortalApp.Models
         public int? ApplicationsId { get; set; }
         public int Score { get; set; }
         public DateTime Created_at { get; set; }
-
-        [ForeignKey("StagesId")]
-        public virtual StagesModel Stage { get; set; }
-
-        [ForeignKey("ApplicationsId")]
+       
+        public virtual StagesModel Stage { get; set; }       
         public virtual ApplicationsModel Application { get; set; }
     }
 }

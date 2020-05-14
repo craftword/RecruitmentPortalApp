@@ -13,10 +13,8 @@ namespace RecruitmentPortalApp.Models
         public string Content { get; set; }        
         public int? QuestionsId { get; set; }
         public int? ApplicationsId { get; set; }
-        public DateTime Created_at { get; set; }
-        [ForeignKey("QuestionsId")]
-        public virtual QuestionsModel Question { get; set; }
-        [ForeignKey("ApplicationsId")]
+        public DateTime Created_at { get; set; }        
+        public virtual QuestionsModel Question { get; set; }      
         public virtual ApplicationsModel Application { get; set; }
     }
 }

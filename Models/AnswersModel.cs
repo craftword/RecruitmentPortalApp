@@ -14,8 +14,7 @@ namespace RecruitmentPortalApp.Models
         public bool IsCorrect { get; set; }       
         public int? QuestionsId { get; set; }
         public DateTime Created_at { get; set; }
-
-        [ForeignKey("QuestionsId")]
+        
         public virtual QuestionsModel Question { get; set; }
     }
 }

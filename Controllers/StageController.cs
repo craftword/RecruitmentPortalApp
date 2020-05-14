@@ -94,7 +94,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { id = Model.Id }, Model);
+            return CreatedAtAction("GetJob", new { Jobsid = Model.Id }, Model);
         }
 
 

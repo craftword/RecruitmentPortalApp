@@ -8,4 +8,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAG4aOB2pJKUyoHO/eRScLnwAAAAACAAAAAAAQZgAAAAEAACAAAADChCY8cLRIxUYRaMZ2FO6AnLL84olKyZm9mL1hzKVylQAAAAAOgAAAAAIAACAAAABhuICz6cafvyPO+kAxWAd/8mYF7qdBXKsKniIuWawF1YAAAAAMFIJXmqDntO19MtG8o2+7zUlq+KzMhZd1zlRJa4o53+I6DKrUq/otim2YvJnVCVRiKZSanwLKHd6v914KhB3b96DyGp2F2J3Pw40sS2SP178JlLJFZxJIxcLFWwkRfMLKZbbOUYShEMLRmBmGIPsX3nsgO9Fvh6636Ow3dvHP6UAAAABY5oG7bjPjhBVobKuYac41douUygcIG8wT+Yx+lB3Jv+hPmBChw5O+iIq6Mw/OiXNG29BRr8T//kMtkQuHTfSk</EncryptedPassword>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DbConnection">
+      <Value>Server=tcp:fashionbackendappdbserver.database.windows.net,1433%3bInitial Catalog=RecruitmentPortalApp%3bPersist Security Info=False%3bUser ID=craftword%3bPassword={your_password}%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="RecruitmentPortalApp.Services.ApplicationDBContext">
+      <Value>Server=tcp:fashionbackendappdbserver.database.windows.net,1433%3bInitial Catalog=RecruitmentPortalApp%3bPersist Security Info=False%3bUser ID=craftword%3bPassword={your_password}%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
 </Project>

@@ -91,7 +91,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { id = JobModel.Id }, JobModel);
+            return CreatedAtAction("GetJob", new { Jobsid = JobModel.Id }, JobModel);
         }
 
 
@@ -152,7 +152,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET A PARTICULAR JOB APPLICANTS
         [HttpGet("{id}/applicants")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
@@ -230,7 +230,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("AddJobStage", new { id = id }, id);
+            return CreatedAtAction("AddJobStage", new { Jobsid = id }, id);
         }
 
     }

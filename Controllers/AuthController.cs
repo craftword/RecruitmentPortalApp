@@ -43,7 +43,7 @@ namespace RecruitmentPortalApp.Controllers
 
             if (result.Succeeded)
             {
-                var idResult = await _userManager.AddToRoleAsync(user, "Applicant");
+                await _userManager.AddToRoleAsync(user, "Applicant");
                 return Ok(new { Username = user.UserName, userCreated = true });
             }
 

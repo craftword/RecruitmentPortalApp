@@ -3,4 +3,7 @@
   <parameter name="IIS Web Application Name" description="" value="RecruitmentPortalApp20200513041439" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\craft\\source\\repos\\RecruitmentPortalApp\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
   </parameter>
+  <parameter name="RecruitmentPortalApp.Services.ApplicationDBContext" description="" value="Server=tcp:fashionbackendappdbserver.database.windows.net,1433;Initial Catalog=RecruitmentPortalApp;Persist Security Info=False;User ID=craftword;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\craft\\source\\repos\\RecruitmentPortalApp\\obj\\Release\\netcoreapp3\.1\\PubTmp\\EFSQLScripts\\RecruitmentPortalApp\.Services\.ApplicationDBContext\.sql$" />
+  </parameter>
 </parameters>
