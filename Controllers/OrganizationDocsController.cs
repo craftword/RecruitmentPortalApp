@@ -93,7 +93,7 @@ namespace RecruitmentPortalApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtAction("GetJob", new { JobId = Model.Id }, Model);
+            return Ok(new { Document = Model.Title, docCreated = true });
         }
 
 
