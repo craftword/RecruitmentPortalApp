@@ -50,7 +50,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET: api/Applications
         [HttpGet]
-        [Authorize(Roles = "Admin,Applicant")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(IEnumerable<ApplicationsDto>))]
 
