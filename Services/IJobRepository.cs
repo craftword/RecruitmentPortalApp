@@ -16,7 +16,7 @@ namespace RecruitmentPortalApp.Services
         JobsModel GetJob(int jobId);
         bool AddJobStages(int jobId, int stageId);
         JobsModel GetJobApplicants(int jobId);
-        StagesModel GetJobStages(int jobId);
+        List<StagesModel> GetJobStages(int jobId);
         bool JobExists(int jobId);
         bool Save();
     }

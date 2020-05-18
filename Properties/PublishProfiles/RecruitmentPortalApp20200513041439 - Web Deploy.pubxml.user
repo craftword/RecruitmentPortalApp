@@ -10,12 +10,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="DbConnection">
-      <Value>Server=tcp:fashionbackendappdbserver.database.windows.net,1433%3bInitial Catalog=RecruitmentPortalApp%3bPersist Security Info=False%3bUser ID=craftword%3bPassword={your_password}%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+      <Value>Server=tcp:fashionbackendappdbserver.database.windows.net,1433%3bInitial Catalog=RecruitmentPortalApp%3bPersist Security Info=False%3bUser ID=craftword%3bPassword=Godword%4020%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
     </DestinationConnectionStrings>
   </ItemGroup>
   <ItemGroup>
     <EFMigrations Include="RecruitmentPortalApp.Services.ApplicationDBContext">
-      <Value>Server=tcp:fashionbackendappdbserver.database.windows.net,1433%3bInitial Catalog=RecruitmentPortalApp%3bPersist Security Info=False%3bUser ID=craftword%3bPassword={your_password}%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+      <Value>Server=tcp:fashionbackendappdbserver.database.windows.net,1433%3bInitial Catalog=RecruitmentPortalApp%3bPersist Security Info=False%3bUser ID=craftword%3bPassword=Godword%4020%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
     </EFMigrations>
   </ItemGroup>
 </Project>

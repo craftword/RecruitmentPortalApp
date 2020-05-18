@@ -71,5 +71,8 @@ C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microso
 C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\craft\source\repos\RecruitmentPortalApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\craft\source\repos\RecruitmentPortalApp\obj\Debug\netcoreapp3.1\RecruitmentPortalApp.MvcApplicationPartsAssemblyInfo.cache

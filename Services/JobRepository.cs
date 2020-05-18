@@ -38,9 +38,9 @@ namespace RecruitmentPortalApp.Services
 
         public JobsModel GetJobApplicants(int jobId)
         {
-            var app = _ApplicationDBContext.Jobs
-               .Include(c => c.Applications)
-               .Where(b => b.Id == jobId).FirstOrDefault();
+            var app = _ApplicationDBContext.Jobs               
+                .Include("Applications")
+                .Where(b => b.Id == jobId).FirstOrDefault();               
 
             return app;
         }
@@ -50,11 +50,11 @@ namespace RecruitmentPortalApp.Services
             return _ApplicationDBContext.Jobs.OrderBy(b => b.ClosingDate).ToList();
         }
 
-        public StagesModel GetJobStages(int jobId)
+        public List<StagesModel> GetJobStages(int jobId)
         {
             var stages = _ApplicationDBContext.Jobs
                      .Where(m => m.Id == jobId)
-                     .SelectMany(m => m.JobStages.Select(mc => mc.Stage)).FirstOrDefault();
+                     .SelectMany(m => m.JobStages.Select(mc => mc.Stage)).ToList();
 
             return stages;
         }
@@ -67,10 +67,8 @@ namespace RecruitmentPortalApp.Services
                 JobId = jobId,
                 StageId = stageId
             };
-            //_ApplicationDBContext.Add(jobStage);
-            _ApplicationDBContext.JobStages.Add(jobStage);
-            var saved = _ApplicationDBContext.SaveChanges();
-            return saved >= 0 ? true : false;
+            _ApplicationDBContext.Add(jobStage);            
+            return Save();
         }
 
         public bool JobExists(int jobId)

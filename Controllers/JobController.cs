@@ -180,10 +180,10 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET A PARTICULAR JOB STAGES
         [HttpGet("{id}/stages")]
-        [Authorize(Roles = "Admin, Applicant")]
+        //[Authorize(Roles = "Admin, Applicant")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
-        [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
+        [ProducesResponseType(200, Type = typeof(List<JobApplicantsDto>))]
         public IActionResult GetAJobStages([FromRoute] int id)
         {
             if (!_jobRepository.JobExists(id))
@@ -203,16 +203,16 @@ namespace RecruitmentPortalApp.Controllers
             }
 
 
-            return Ok(_mapper.Map<StagesModel, StageDto>(result));
+            return Ok(_mapper.Map<List<StagesModel>, List<StageDto>>(result));
         }
 
         // ADD STAGE A PARTICULAR JOB 
-        [HttpPost("{id}/stages")]
-        [Authorize(Roles = "Admin")]
+        [HttpPost("{id}/stages/{stageId}")]
+        //[Authorize(Roles = "Admin")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
-        public IActionResult AddAStagesToAJob(int id, [FromRoute] int stageId)
+        public IActionResult AddAStagesToAJob(int id, int stageId)
         {
             if (!_jobRepository.JobExists(id))
                 return NotFound();
