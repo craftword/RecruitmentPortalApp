@@ -152,7 +152,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET A PARTICULAR JOB APPLICANTS
         [HttpGet("{id}/applicants")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(JobApplicantsDto))]
@@ -180,7 +180,7 @@ namespace RecruitmentPortalApp.Controllers
 
         // GET A PARTICULAR JOB STAGES
         [HttpGet("{id}/stages")]
-        //[Authorize(Roles = "Admin, Applicant")]
+        [Authorize(Roles = "Admin, Applicant")]
         [ProducesResponseType(404)]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(List<JobApplicantsDto>))]

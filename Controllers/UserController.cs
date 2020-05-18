@@ -140,7 +140,7 @@ namespace RecruitmentPortalApp.Controllers
 
             var result = _ApplicationDBContext.NewUsers
                          .Include(c => c.StaffDocuments)
-                         .Where(b => b.Id == id).FirstOrDefault();
+                         .Where(b => b.Id == id).ToList();
 
             if (result == null)
             {
@@ -148,7 +148,7 @@ namespace RecruitmentPortalApp.Controllers
             }
 
 
-            return Ok(_mapper.Map<UserModel, UserDto>(result));
+            return Ok(_mapper.Map<List<UserModel>, List<UserDocsDto>>(result));
         }
 
         //========= Users Profiles ==============  

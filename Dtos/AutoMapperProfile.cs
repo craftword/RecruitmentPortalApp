@@ -20,7 +20,9 @@ namespace RecruitmentPortalApp.Dtos
             CreateMap<ApplicationsDto, ApplicationsModel>()
            .ReverseMap();
             CreateMap<QuestionsDto, QuestionsModel>()
-          .ReverseMap();
+           .ReverseMap();
+            CreateMap<UserDocsDto, UserModel>()
+              .ReverseMap();
         }
     }
 }
